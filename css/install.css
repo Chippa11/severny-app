@@ -1,0 +1,23 @@
+
+body.install-page{margin:0;min-height:100vh;background:linear-gradient(135deg,#071120,#0B1730);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#0F172A;display:flex;align-items:center;justify-content:center;padding:24px}
+.install-shell{width:min(980px,100%);display:grid;grid-template-columns:1.05fr .95fr;gap:24px}
+.install-card,.qr-card{border-radius:32px;box-shadow:0 30px 90px rgba(0,0,0,.28);padding:32px}
+.install-card{background:rgba(255,255,255,.97)}
+.install-logo{width:240px;max-height:105px;object-fit:contain;margin-bottom:28px}
+.install-card h1{font-size:42px;line-height:1.05;margin:0 0 14px}
+.install-card p{color:#64748B;font-size:17px;line-height:1.55;margin:0}
+.install-actions{display:grid;gap:12px;margin-top:28px}
+.install-primary,.install-secondary{min-height:58px;border-radius:18px;font-weight:900;font-size:16px}
+.install-primary{border:0;background:linear-gradient(135deg,#0A63E8,#1683FF);color:white}
+.install-secondary{background:#EAF2FF;color:#0A63E8;display:grid;place-items:center;text-decoration:none}
+.install-steps{display:grid;gap:14px;margin-top:28px}
+.install-step{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:16px;border-radius:20px;background:#F3F7FC}
+.install-step span{width:42px;height:42px;border-radius:15px;display:grid;place-items:center;color:white;background:linear-gradient(135deg,#0A63E8,#1683FF);font-weight:900}
+.install-step b{display:block;margin-bottom:5px}.install-step p{font-size:14px}
+.qr-card{background:linear-gradient(135deg,#0A63E8,#063B94);color:white;display:flex;flex-direction:column;justify-content:space-between}
+.qr-card h2{margin:0 0 10px;font-size:28px}.qr-card p{margin:0;color:rgba(255,255,255,.82);line-height:1.5}
+.qr-box{background:white;border-radius:28px;padding:22px;margin:28px 0;display:grid;place-items:center}.qr-box img{width:100%;max-width:360px}
+.qr-link{padding:16px;border-radius:18px;background:rgba(255,255,255,.12);color:white;word-break:break-all;font-size:14px}
+.install-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(60px);background:#0F172A;color:white;border-radius:999px;padding:13px 18px;opacity:0;transition:.22s;z-index:10}
+.install-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:760px){body.install-page{align-items:flex-start;padding:0;background:#F3F7FC}.install-shell{display:block}.install-card,.qr-card{border-radius:0;box-shadow:none}.install-card{padding:28px 20px}.install-logo{width:220px}.install-card h1{font-size:34px}.qr-card{border-top-left-radius:28px;border-top-right-radius:28px;padding:28px 20px}.qr-box img{max-width:280px}}

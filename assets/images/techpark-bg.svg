@@ -1,0 +1,9 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity=".78">
+<path d="M78 520V217L440 68L820 220V520H78Z" fill="url(#b)" stroke="white" stroke-opacity=".25" stroke-width="4"/>
+<path d="M440 68V520" stroke="white" stroke-opacity=".22" stroke-width="4"/>
+<path d="M139 258H382M139 316H382M139 374H382M139 432H382M495 258H750M495 316H750M495 374H750M495 432H750" stroke="white" stroke-opacity=".34" stroke-width="6"/>
+<path d="M78 520H840" stroke="white" stroke-opacity=".35" stroke-width="6"/>
+</g>
+<defs><linearGradient id="b" x1="78" y1="68" x2="820" y2="520" gradientUnits="userSpaceOnUse"><stop stop-color="white" stop-opacity=".34"/><stop offset="1" stop-color="white" stop-opacity=".04"/></linearGradient></defs>
+</svg>

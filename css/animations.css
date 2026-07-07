@@ -1,0 +1,16 @@
+@keyframes screenIn{
+  from{opacity:.35;transform:translateY(8px)}
+  to{opacity:1;transform:none}
+}
+
+@keyframes splashPop{
+  from{opacity:0;transform:translateY(18px) scale(.96)}
+  to{opacity:1;transform:none}
+}
+
+button{
+  transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+button:active{
+  transform:scale(.97);
+}

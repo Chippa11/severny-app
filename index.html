@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A63E8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Северный" />
+  <title>Северный Технопарк</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="apple-touch-icon" href="./assets/icon-192.png" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/animations.css" />
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="desktop-sidebar">
+      <div class="desktop-brand">
+        <img src="./assets/logo.png" alt="Северный Технопарк" />
+      </div>
+      <nav class="desktop-menu">
+        <button class="active" data-screen="home" onclick="navigateTo('home')"><svg><use href="#home-icon"/></svg>Главная</button>
+        <button data-screen="tickets" onclick="navigateTo('tickets')"><svg><use href="#task"/></svg>Заявки</button>
+        <button data-screen="request" onclick="navigateTo('request')"><svg><use href="#plus-circle"/></svg>Новая заявка</button>
+        <button data-screen="contacts" onclick="navigateTo('contacts')"><svg><use href="#phone"/></svg>Контакты</button>
+        <button data-screen="prices" onclick="navigateTo('prices')"><svg><use href="#wallet"/></svg>Прайсы</button>
+        <button data-screen="info" onclick="navigateTo('info')"><svg><use href="#profile"/></svg>Профиль</button>
+      </nav>
+      <div class="desktop-support">
+        <b>Диспетчерская</b>
+        <p>+7 (495) 123-45-67</p>
+        <button onclick="navigateTo('request')">Создать заявку</button>
+      </div>
+    </aside>
+
+    <header class="desktop-topbar">
+      <div class="desktop-title">
+        <span>Личный кабинет арендатора</span>
+        <b>ООО «РКК» · Корпус А, офис 214</b>
+      </div>
+      <div class="desktop-search">
+        <svg><use href="#filter"/></svg>
+        <input placeholder="Поиск по заявкам, документам, контактам" />
+      </div>
+      <button class="desktop-notify" onclick="showToast('Уведомления будут работать после подключения backend')">
+        <svg><use href="#bell"/></svg><span>3</span>
+      </button>
+    </header>
+
+    <section class="splash" id="splash">
+      <div class="splash-card">
+        <img src="./assets/logo.png" alt="Северный Технопарк" />
+        <h1>Северный Технопарк</h1>
+        <p>Сервис арендаторов</p>
+      </div>
+    </section>
+
+    <section id="home" class="screen active">
+      <div class="hero hero-premium">
+        <div class="hero-bg"></div>
+        <img class="hero-building" src="./assets/images/techpark-bg.svg" alt="" />
+        <header class="hero-top">
+          <img class="brand-logo" src="./assets/logo.png" alt="Северный Технопарк" />
+          <button class="icon-button glass" onclick="showToast('Уведомления будут работать после подключения backend')">
+            <svg><use href="#bell"/></svg><span class="badge">3</span>
+          </button>
+        </header>
+
+        <div class="greeting">
+          <span class="eyebrow">Личный кабинет</span>
+          <h1>Добрый день!</h1>
+          <p>ООО «РКК» · Корпус А, офис 214</p>
+        </div>
+
+        <div class="dashboard-stats glass-panel">
+          <div>
+            <span class="stat-icon"><svg><use href="#clock"/></svg></span>
+            <small>Сегодня</small>
+            <b>09:00–18:00</b>
+            <p>Режим работы</p>
+          </div>
+          <div>
+            <span class="stat-icon"><svg><use href="#task"/></svg></span>
+            <small>В работе</small>
+            <b>8 заявок</b>
+            <p>По технопарку</p>
+          </div>
+          <div>
+            <span class="stat-icon"><svg><use href="#check"/></svg></span>
+            <small>Выполнено</small>
+            <b>9 сегодня</b>
+            <p>Закрыто</p>
+          </div>
+        </div>
+      </div>
+
+      <main class="home-content">
+        <section class="section">
+          <div class="section-head">
+            <h2>Объявления</h2>
+            <button onclick="showToast('Лента объявлений в следующем этапе')">Все</button>
+          </div>
+
+          <button class="announcement-card" onclick="showToast('Демо: карточка объявления')">
+            <span class="card-icon blue"><svg><use href="#megaphone"/></svg></span>
+            <div>
+              <b>Плановое обслуживание</b>
+              <p>19 июня с 00:00 до 06:00 возможны перерывы в работе вентиляции.</p>
+            </div>
+            <i>›</i>
+          </button>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Быстрые действия</h2>
+          </div>
+
+          <div class="action-grid">
+            <button class="action-card primary-action" onclick="navigateTo('request')">
+              <span><svg><use href="#file-plus"/></svg></span>
+              <b>Подать заявку</b>
+              <p>Создать обращение</p>
+            </button>
+            <button class="action-card" onclick="showToast('Модуль пропусков будет подключен позже')">
+              <span><svg><use href="#badge-id"/></svg></span>
+              <b>Заказать пропуск</b>
+              <p>Гость или подрядчик</p>
+            </button>
+            <button class="action-card" onclick="showToast('Разгрузочная зона будет подключена позже')">
+              <span><svg><use href="#truck"/></svg></span>
+              <b>Разгрузка</b>
+              <p>Согласовать время</p>
+            </button>
+            <button class="action-card" onclick="navigateTo('contacts')">
+              <span><svg><use href="#phone"/></svg></span>
+              <b>Диспетчер</b>
+              <p>Быстрый звонок</p>
+            </button>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Мои заявки</h2>
+            <button onclick="navigateTo('tickets')">Смотреть все</button>
+          </div>
+
+          <button class="ticket-preview" onclick="openTicketDetail()">
+            <span class="ticket-number">#2457</span>
+            <div>
+              <b>Неисправность освещения</b>
+              <p>Создана 17.06.2025 в 14:32</p>
+            </div>
+            <em class="status-progress">В работе</em>
+          </button>
+
+          <button class="ticket-preview" onclick="openTicketDetail()">
+            <span class="ticket-number">#2456</span>
+            <div>
+              <b>Протечка в офисе 302</b>
+              <p>Создана 16.06.2025 в 09:15</p>
+            </div>
+            <em class="status-done">Выполнено</em>
+          </button>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>Сервисы</h2></div>
+          <div class="service-list">
+            <button onclick="navigateTo('prices')"><span><svg><use href="#wallet"/></svg></span><div><b>Прайсы</b><p>Актуальные цены на услуги</p></div><i>›</i></button>
+            <button onclick="navigateTo('info')"><span><svg><use href="#info"/></svg></span><div><b>Информация</b><p>Правила, FAQ и документы</p></div><i>›</i></button>
+            <button onclick="showToast('Парковка будет подключена позже')"><span><svg><use href="#parking"/></svg></span><div><b>Парковка</b><p>Въезд, места и заявки</p></div><i>›</i></button>
+            <button onclick="showToast('Карта технопарка в следующем этапе')"><span><svg><use href="#map"/></svg></span><div><b>Карта технопарка</b><p>Корпуса, въезды и зоны разгрузки</p></div><i>›</i></button>
+            <button onclick="location.href='./install.html'"><span><svg><use href="#plus-circle"/></svg></span><div><b>Установить приложение</b><p>QR и инструкция для телефона</p></div><i>›</i></button>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <section id="request" class="screen">
+      <header class="page-header">
+        <button onclick="navigateTo('home')" class="back-button">‹</button>
+        <h2>Новая заявка</h2>
+        <span></span>
+      </header>
+
+      <main class="page-content">
+        <div class="request-types">
+          <button class="selected"><svg><use href="#bolt"/></svg><b>Электрика</b></button>
+          <button><svg><use href="#water"/></svg><b>Сантехника</b></button>
+          <button><svg><use href="#snow"/></svg><b>Кондиционер</b></button>
+          <button><svg><use href="#badge-id"/></svg><b>Пропуск</b></button>
+          <button><svg><use href="#truck"/></svg><b>Разгрузка</b></button>
+          <button><svg><use href="#tool"/></svg><b>Другое</b></button>
+        </div>
+
+        <form class="form-card" onsubmit="submitRequest(event)">
+          <label>Помещение / офис</label>
+          <input placeholder="Например: корпус А, офис 214" />
+
+          <label>Описание проблемы</label>
+          <textarea placeholder="Опишите проблему или просьбу"></textarea>
+
+          <label>Фото <small>(необязательно)</small></label>
+          <button type="button" class="attach-button"><svg><use href="#camera"/></svg>Прикрепить фото</button>
+
+          <button class="primary-button" type="submit">Отправить заявку</button>
+        </form>
+      </main>
+    </section>
+
+    <section id="tickets" class="screen">
+      <header class="page-header">
+        <button onclick="navigateTo('home')" class="back-button">‹</button>
+        <h2>Мои заявки</h2>
+        <button class="header-action" onclick="showToast('Фильтр в демо-режиме')"><svg><use href="#filter"/></svg></button>
+      </header>
+
+      <main class="page-content">
+        <div class="segmented">
+          <button class="active">Все</button>
+          <button>В работе</button>
+          <button>Выполнено</button>
+          <button>Новые</button>
+        </div>
+
+        <div class="ticket-list">
+          <article class="ticket-card" onclick="openTicketDetail()"><span>#2457</span><div><b>Неисправность освещения</b><p>17.06.2025 в 14:32</p></div><em class="status-progress">В работе</em><i>›</i></article>
+          <article class="ticket-card" onclick="openTicketDetail()"><span>#2456</span><div><b>Протечка в офисе 302</b><p>16.06.2025 в 09:15</p></div><em class="status-done">Выполнено</em><i>›</i></article>
+          <article class="ticket-card" onclick="openTicketDetail()"><span>#2455</span><div><b>Проблема с кондиционером</b><p>15.06.2025 в 16:45</p></div><em class="status-progress">В работе</em><i>›</i></article>
+          <article class="ticket-card" onclick="openTicketDetail()"><span>#2454</span><div><b>Запрос на доп. пропуск</b><p>14.06.2025 в 11:20</p></div><em class="status-new">Новая</em><i>›</i></article>
+        </div>
+      </main>
+    </section>
+
+    <section id="ticket-detail" class="screen">
+      <header class="page-header">
+        <button onclick="navigateTo('tickets')" class="back-button">‹</button>
+        <h2>Заявка #2457</h2>
+        <button class="header-action" onclick="showToast('Дополнительные действия')">⋯</button>
+      </header>
+
+      <main class="page-content">
+        <article class="detail-card">
+          <div class="detail-top"><em class="status-progress">В работе</em><small>17.06.2025 в 14:32</small></div>
+          <h3>Неисправность освещения</h3>
+          <p class="muted">Офис 305, 3 этаж</p>
+          <hr>
+          <h4>Описание</h4>
+          <p>Мерцает светильник над рабочим местом. Просьба заменить лампу.</p>
+
+          <div class="timeline">
+            <div><span></span><b>Заявка создана</b><p>17.06.2025 · 14:32</p></div>
+            <div><span></span><b>Назначен ответственный</b><p>Алексей Петров · 14:50</p></div>
+            <div><span></span><b>В работе</b><p>Специалист выехал на место · 15:10</p></div>
+          </div>
+        </article>
+
+        <button class="primary-button" onclick="showToast('Чат подключим после backend')">Написать в поддержку</button>
+      </main>
+    </section>
+
+    <section id="contacts" class="screen">
+      <header class="page-header">
+        <button onclick="navigateTo('home')" class="back-button">‹</button>
+        <h2>Контакты</h2>
+        <span></span>
+      </header>
+      <main class="page-content">
+        <a class="contact-card" href="tel:+74951234567"><span><svg><use href="#phone"/></svg></span><div><b>Диспетчерская служба</b><p>+7 (495) 123-45-67</p></div><i>Позвонить</i></a>
+        <a class="contact-card" href="tel:+74951234568"><span><svg><use href="#tool"/></svg></span><div><b>Отдел эксплуатации</b><p>+7 (495) 123-45-68</p></div><i>Позвонить</i></a>
+        <a class="contact-card" href="tel:+74951234569"><span><svg><use href="#badge-id"/></svg></span><div><b>Отдел пропусков</b><p>+7 (495) 123-45-69</p></div><i>Позвонить</i></a>
+        <a class="contact-card" href="tel:+74951234571"><span><svg><use href="#shield"/></svg></span><div><b>Охрана</b><p>+7 (495) 123-45-71</p></div><i>Позвонить</i></a>
+      </main>
+    </section>
+
+    <section id="prices" class="screen">
+      <header class="page-header">
+        <button onclick="navigateTo('home')" class="back-button">‹</button>
+        <h2>Прайсы</h2>
+        <span></span>
+      </header>
+      <main class="page-content">
+        <div class="price-card"><span><svg><use href="#badge-id"/></svg></span><b>Дополнительный пропуск</b><strong>500 ₽</strong></div>
+        <div class="price-card"><span><svg><use href="#truck"/></svg></span><b>Погрузчик / 1 час</b><strong>2 500 ₽</strong></div>
+        <div class="price-card"><span><svg><use href="#bolt"/></svg></span><b>Электромонтажные работы</b><strong>от 1 500 ₽</strong></div>
+        <div class="price-card"><span><svg><use href="#map"/></svg></span><b>Разгрузочная зона</b><strong>по согласованию</strong></div>
+      </main>
+    </section>
+
+    <section id="info" class="screen">
+      <header class="page-header">
+        <button onclick="navigateTo('home')" class="back-button">‹</button>
+        <h2>Профиль</h2>
+        <span></span>
+      </header>
+      <main class="page-content">
+        <div class="profile-card">
+          <img src="./assets/logo.png" alt="Северный" />
+          <h3>ООО «РКК»</h3>
+          <p>Корпус А · офис 214</p>
+        </div>
+
+        <div class="info-list">
+          <button><span><svg><use href="#document"/></svg></span><b>Документы</b><i>›</i></button>
+          <button><span><svg><use href="#info"/></svg></span><b>Правила технопарка</b><i>›</i></button>
+          <button><span><svg><use href="#help"/></svg></span><b>Частые вопросы</b><i>›</i></button>
+          <button><span><svg><use href="#settings"/></svg></span><b>Настройки</b><i>›</i></button>
+        </div>
+      </main>
+    </section>
+
+    <nav class="tabbar">
+      <button class="active" data-screen="home" onclick="navigateTo('home')"><svg><use href="#home-icon"/></svg><span>Главная</span></button>
+      <button data-screen="tickets" onclick="navigateTo('tickets')"><svg><use href="#task"/></svg><span>Заявки</span></button>
+      <button data-screen="request" onclick="navigateTo('request')"><svg><use href="#plus-circle"/></svg><span>Создать</span></button>
+      <button data-screen="contacts" onclick="navigateTo('contacts')"><svg><use href="#phone"/></svg><span>Контакты</span></button>
+      <button data-screen="info" onclick="navigateTo('info')"><svg><use href="#profile"/></svg><span>Профиль</span></button>
+    </nav>
+
+    <div id="toast"></div>
+
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="bell" viewBox="0 0 24 24"><path d="M15 17H9m9-2V10a6 6 0 0 0-12 0v5l-2 2h16l-2-2Zm-6 6a2.5 2.5 0 0 0 2.3-1.5H9.7A2.5 2.5 0 0 0 12 21Z"/></symbol>
+      <symbol id="clock" viewBox="0 0 24 24"><path d="M12 8v5l3 2M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z"/></symbol>
+      <symbol id="task" viewBox="0 0 24 24"><path d="M9 5h6M9 11h6M9 15h6M9 19h4M7 3h10v4H7V3Z"/><path d="M5 5H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1"/></symbol>
+      <symbol id="check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="megaphone" viewBox="0 0 24 24"><path d="M3 11v2a2 2 0 0 0 2 2h2l4 4v-4h4l6 3V6l-6 3H5a2 2 0 0 0-2 2Z"/></symbol>
+      <symbol id="file-plus" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"/><path d="M14 2v6h6M12 11v6M9 14h6"/></symbol>
+      <symbol id="badge-id" viewBox="0 0 24 24"><path d="M4 5h16v14H4V5Z"/><path d="M8 9h4M8 13h8M16 9h.01"/></symbol>
+      <symbol id="truck" viewBox="0 0 24 24"><path d="M3 7h11v9H3V7Zm11 3h4l3 3v3h-7v-6Z"/><path d="M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm11 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></symbol>
+      <symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8L7.7 9.8a16 16 0 0 0 6.5 6.5l1.3-1.3a2 2 0 0 1 1.8-.6l3 .5a2 2 0 0 1 1.7 2Z"/></symbol>
+      <symbol id="wallet" viewBox="0 0 24 24"><path d="M3 7h18v12H3V7Z"/><path d="M16 12h5v4h-5a2 2 0 0 1 0-4Z"/></symbol>
+      <symbol id="info" viewBox="0 0 24 24"><path d="M12 16v-4M12 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></symbol>
+      <symbol id="parking" viewBox="0 0 24 24"><path d="M7 22V2h7a5 5 0 0 1 0 10H7"/><path d="M7 12h7"/></symbol>
+      <symbol id="map" viewBox="0 0 24 24"><path d="m9 18-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z"/><path d="M9 3v15M15 6v15"/></symbol>
+      <symbol id="bolt" viewBox="0 0 24 24"><path d="m13 2-9 13h7l-1 7 10-14h-7l1-6Z"/></symbol>
+      <symbol id="water" viewBox="0 0 24 24"><path d="M12 2s7 7 7 13a7 7 0 0 1-14 0C5 9 12 2 12 2Z"/></symbol>
+      <symbol id="snow" viewBox="0 0 24 24"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></symbol>
+      <symbol id="tool" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18v3h3l6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-3-3 2.4-2.4Z"/></symbol>
+      <symbol id="camera" viewBox="0 0 24 24"><path d="M4 7h4l2-3h4l2 3h4v13H4V7Z"/><circle cx="12" cy="13" r="3"/></symbol>
+      <symbol id="filter" viewBox="0 0 24 24"><path d="M4 5h16l-6 7v5l-4 2v-7L4 5Z"/></symbol>
+      <symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
+      <symbol id="document" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></symbol>
+      <symbol id="help" viewBox="0 0 24 24"><path d="M9.1 9a3 3 0 1 1 5.8 1c-.8 1.3-2.9 1.7-2.9 3M12 17h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></symbol>
+      <symbol id="settings" viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1-2 3.5-.2-.1a1.7 1.7 0 0 0-1.8.1 1.7 1.7 0 0 0-.8 1.5V22H9v-.2a1.7 1.7 0 0 0-.8-1.5 1.7 1.7 0 0 0-1.8-.1l-.2.1-2-3.5.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.4-1H3v-4h.2a1.7 1.7 0 0 0 1.4-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1 2-3.5.2.1a1.7 1.7 0 0 0 1.8-.1A1.7 1.7 0 0 0 9 2.2V2h6v.2a1.7 1.7 0 0 0 .8 1.5 1.7 1.7 0 0 0 1.8.1l.2-.1 2 3.5-.1.1a1.7 1.7 0 0 0-.3 1.8 1.7 1.7 0 0 0 1.4 1h.2v4h-.2a1.7 1.7 0 0 0-1.4 1Z"/></symbol>
+      <symbol id="home-icon" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3V11Z"/></symbol>
+      <symbol id="plus-circle" viewBox="0 0 24 24"><path d="M12 8v8M8 12h8M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></symbol>
+      <symbol id="profile" viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    </svg>
+
+    <script src="./js/navigation.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/app.js"></script>
+  </div>
+</body>
+</html>
